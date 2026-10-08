@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel Estratégico SENAI Ourinhos</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f5f7;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+    border-left:6px solid #d71920;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    height:40px;
+}
+
+.titulo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.botoes button{
+    padding:10px 18px;
+    border:none;
+    border-radius:5px;
+    color:white;
+    cursor:pointer;
+    margin-left:8px;
+}
+
+.btn-verde{
+    background:#28a745;
+}
+
+.btn-vermelho{
+    background:#d71920;
+}
+
+.btn-azul{
+    background:#1f2937;
+}
+
+.menu{
+    display:flex;
+    gap:15px;
+    padding:15px 20px;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+}
+
+.aba{
+    padding:12px 25px;
+    border-radius:6px;
+    border:1px solid #ddd;
+    cursor:pointer;
+}
+
+.ativa{
+    border:2px solid #d71920;
+    font-weight:bold;
+    color:#d71920;
+}
+
+.filtros{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    padding:20px;
+}
+
+select{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
+.indicadores{
+    display:flex;
+    gap:15px;
+    padding:0 20px 20px 20px;
+}
+
+.card{
+    padding:12px 18px;
+    border-radius:6px;
+    color:white;
+    font-weight:bold;
+}
+
+.alerta{
+    background:#f59e0b;
+}
+
+.andamento{
+    background:#10b981;
+}
+
+.planejado{
+    background:#d97706;
+}
+
+.cronograma{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#f3f4f6;
+    padding:12px;
+    text-align:center;
+}
+
+td{
+    padding:12px;
+    border-top:1px solid #eee;
+    height:50px;
+}
+
+.nome{
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.gantt{
+    position:relative;
+    height:40px;
+}
+
+.barra{
+    position:absolute;
+    height:28px;
+    border-radius:4px;
+    color:white;
+    font-size:12px;
+    padding:6px;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+
+.verde{
+    background:#10b981;
+}
+
+.amarela{
+    background:#f59e0b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="topo">
+
+<div class="logo">
+<img src="https://upload.org/wikipedia/commons/4/4f/Logo_SENAI.png
+<div class="titulo">
+PAINEL ESTRATÉGICO SENAI OURINHOS
+</div>
+</div>
+
+<div class="botoes">
+<button class="btn-verde">Atualizar</button>
+<button class="btn-vermelho">Exportar PDF</button>
+<button class="btn-azul">Exportar Excel</button>
+</div>
+
+</div>
+
+<div class="menu">
+<div class="aba">📊 Síntese de Informações</div>
+<div class="aba ativa">📅 Cronograma</div>
+<div class="aba">📈 Insights</div>
+</div>
+
+<div class="filtros">
+
+<select>
+<option>Município</option>
+<option>Ourinhos</option>
+<option>Chavantes</option>
+</select>
+
+<select>
+<option>Ocupação</option>
+</select>
+
+<select>
+<option>Segmento</option>
+</select>
+
+<select>
+<option>Status</option>
+</select>
+
+</div>
+
+<div class="indicadores">
+
+<div class="card alerta">
+⚠ Alertas: 12
+</div>
+
+<div class="card andamento">
+🟢 Crescimento: 18
+</div>
+
+<div class="card planejado">
+🟡 Estabilidade: 7
+</div>
+
+</div>
+
+<div class="cronograma">
+
+<table>
+
+<thead>
+<tr>
+<th>OCUPAÇÃO</th>
+<th>JAN</th>
+<th>FEV</th>
+<th>MAR</th>
+<th>ABR</th>
+<th>MAI</th>
+<th>JUN</th>
+<th>JUL</th>
+<th>AGO</th>
+<th>SET</th>
+<th>OUT</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="nome">Soldador</td>
+
+<td colspan="10">
+<div class="gantt">
+<div class="barra verde"
+style="left:20%; width:40%;">
+Soldador Industrial
+</div>
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="nome">Operador CNC</td>
+
+<td colspan="10">
+<div class="gantt">
+<div class="barra amarela"
+style="left:35%; width:20%;">
+Operador CNC
+</div>
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="nome">Mecânico Industrial</td>
+
+<td colspan="10">
+<div class="gantt">
+<div class="barra verde"
+style="left:10%; width:65%;">
+Mecânico Industrial
+</div>
+</div>
+</td>
+
+</tr>
+
+<tr>
+
+<td class="nome">Alimentador de Produção</td>
+
+<td colspan="10">
+<div class="gantt">
+<div class="barra verde"
+style="left:45%; width:35%;">
+Alimentador de Produção
+</div>
+</div>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
