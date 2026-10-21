@@ -4,175 +4,198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Painel Estratégico SENAI Ourinhos</title>
+<title>Portal da CIPA - SENAI Ourinhos</title>
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f5f7;
-    margin:0;
-    padding:20px;
+background:#f5f6fa;
 }
 
-.container{
-    background:white;
-    border-radius:8px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    overflow:hidden;
-}
-
-.topo{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px;
-    border-left:6px solid #d71920;
+header{
+background:white;
+border-bottom:3px solid #e30613;
+padding:15px 30px;
+display:flex;
+align-items:center;
+gap:20px;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:15px;
+background:#e30613;
+color:white;
+font-size:32px;
+font-weight:bold;
+padding:5px 20px;
 }
 
-.logo img{
-    height:40px;
+.titulo h1{
+font-size:26px;
+color:#333;
 }
 
-.titulo{
-    font-size:24px;
-    font-weight:bold;
-}
-
-.botoes button{
-    padding:10px 18px;
-    border:none;
-    border-radius:5px;
-    color:white;
-    cursor:pointer;
-    margin-left:8px;
-}
-
-.btn-verde{
-    background:#28a745;
-}
-
-.btn-vermelho{
-    background:#d71920;
-}
-
-.btn-azul{
-    background:#1f2937;
+.titulo p{
+color:#666;
 }
 
 .menu{
-    display:flex;
-    gap:15px;
-    padding:15px 20px;
-    border-top:1px solid #eee;
-    border-bottom:1px solid #eee;
+background:white;
+padding:15px;
+display:flex;
+gap:10px;
+border-bottom:1px solid #ddd;
+flex-wrap:wrap;
 }
 
-.aba{
-    padding:12px 25px;
-    border-radius:6px;
-    border:1px solid #ddd;
-    cursor:pointer;
+.menu a{
+text-decoration:none;
+background:#f4f4f4;
+padding:10px 20px;
+border-radius:6px;
+color:#333;
+font-weight:600;
+transition:.3s;
 }
 
-.ativa{
-    border:2px solid #d71920;
-    font-weight:bold;
-    color:#d71920;
+.menu a:hover{
+background:#e30613;
+color:white;
 }
 
-.filtros{
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
-    gap:10px;
-    padding:20px;
+.banner{
+background:linear-gradient(135deg,#e30613,#b5000f);
+color:white;
+padding:40px;
+text-align:center;
 }
 
-select{
-    padding:10px;
-    border:1px solid #ddd;
-    border-radius:5px;
+.banner h2{
+font-size:36px;
+margin-bottom:10px;
 }
 
-.indicadores{
-    display:flex;
-    gap:15px;
-    padding:0 20px 20px 20px;
+.banner p{
+font-size:18px;
 }
 
-.card{
-    padding:12px 18px;
-    border-radius:6px;
-    color:white;
-    font-weight:bold;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
 }
 
-.alerta{
-    background:#f59e0b;
+.card-indicador{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,.15);
 }
 
-.andamento{
-    background:#10b981;
+.card-indicador h3{
+font-size:14px;
+color:#777;
+margin-bottom:10px;
 }
 
-.planejado{
-    background:#d97706;
+.card-indicador .numero{
+font-size:35px;
+font-weight:bold;
+color:#e30613;
 }
 
-.cronograma{
-    overflow:auto;
+.titulo-secao{
+padding:20px;
+font-size:22px;
+font-weight:bold;
+color:#333;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+.grid-links{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+
 }
 
-th{
-    background:#f3f4f6;
-    padding:12px;
-    text-align:center;
+.link-card{
+
+background:white;
+padding:30px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 2px 5px rgba(0,0,0,.15);
+cursor:pointer;
+transition:.3s;
+
 }
 
-td{
-    padding:12px;
-    border-top:1px solid #eee;
-    height:50px;
+.link-card:hover{
+
+transform:translateY(-5px);
+
 }
 
-.nome{
-    font-weight:bold;
-    white-space:nowrap;
+.link-card a{
+
+text-decoration:none;
+color:#333;
+font-weight:bold;
+
 }
 
-.gantt{
-    position:relative;
-    height:40px;
+.eventos{
+
+padding:20px;
+
 }
 
-.barra{
-    position:absolute;
-    height:28px;
-    border-radius:4px;
-    color:white;
-    font-size:12px;
-    padding:6px;
-    box-sizing:border-box;
-    overflow:hidden;
+.tabela{
+
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 5px rgba(0,0,0,.15);
+
 }
 
-.verde{
-    background:#10b981;
+.tabela table{
+
+width:100%;
+border-collapse:collapse;
+
 }
 
-.amarela{
-    background:#f59e0b;
+.tabela th{
+
+background:#e30613;
+color:white;
+padding:15px;
+
+}
+
+.tabela td{
+
+padding:12px;
+border-bottom:1px solid #eee;
+
+}
+
+footer{
+
+padding:30px;
+text-align:center;
+color:#777;
+
 }
 
 </style>
@@ -181,157 +204,131 @@ td{
 
 <body>
 
-<div class="container">
-
-<div class="topo">
+<header>
 
 <div class="logo">
-<img src="https://upload.org/wikipedia/commons/4/4f/Logo_SENAI.png
+SENAI
+</div>
+
 <div class="titulo">
-PAINEL ESTRATÉGICO SENAI OURINHOS
-</div>
-</div>
-
-<div class="botoes">
-<button class="btn-verde">Atualizar</button>
-<button class="btn-vermelho">Exportar PDF</button>
-<button class="btn-azul">Exportar Excel</button>
+<h1>Portal da CIPA</h1>
+<p>SENAI Ourinhos | Gestão 2026/2027</p>
 </div>
 
-</div>
+</header>
 
 <div class="menu">
-<div class="aba">📊 Síntese de Informações</div>
-<div class="aba ativa">📅 Cronograma</div>
-<div class="aba">📈 Insights</div>
-</div>
 
-<div class="filtros">
-
-<select>
-<option>Município</option>
-<option>Ourinhos</option>
-<option>Chavantes</option>
-</select>
-
-<select>
-<option>Ocupação</option>
-</select>
-
-<select>
-<option>Segmento</option>
-</select>
-
-<select>
-<option>Status</option>
-</select>
+<a href="#">Dashboard</a>
+<a href="#">Documentos</a>
+<a href="#">Inspeções</a>
+<a href="#">Campanhas</a>
+<a href="#">SIPAT</a>
+<a href="#">Indicadores</a>
+<a href="#">Sugestões</a>
 
 </div>
 
-<div class="indicadores">
+<div class="banner">
 
-<div class="card alerta">
-⚠ Alertas: 12
-</div>
+<h2>🦺 Segurança é responsabilidade de todos</h2>
 
-<div class="card andamento">
-🟢 Crescimento: 18
-</div>
-
-<div class="card planejado">
-🟡 Estabilidade: 7
-</div>
+<p>Portal oficial da Comissão Interna de Prevenção de Acidentes - CIPA</p>
 
 </div>
 
-<div class="cronograma">
+<div class="cards">
 
-<table>
-
-<thead>
-<tr>
-<th>OCUPAÇÃO</th>
-<th>JAN</th>
-<th>FEV</th>
-<th>MAR</th>
-<th>ABR</th>
-<th>MAI</th>
-<th>JUN</th>
-<th>JUL</th>
-<th>AGO</th>
-<th>SET</th>
-<th>OUT</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td class="nome">Soldador</td>
-
-<td colspan="10">
-<div class="gantt">
-<div class="barra verde"
-style="left:20%; width:40%;">
-Soldador Industrial
+<div class="card-indicador">
+<h3>ACIDENTES</h3>
+<div class="numero">0</div>
 </div>
-</div>
-</td>
 
-</tr>
+<div class="card-indicador">
+<h3>INSPEÇÕES</h3>
+<div class="numero">15</div>
+</div>
+
+<div class="card-indicador">
+<h3>TREINAMENTOS</h3>
+<div class="numero">12</div>
+</div>
+
+<div class="card-indicador">
+<h3>CAMPANHAS</h3>
+<div class="numero">4</div>
+</div>
+
+</div>
+
+<div class="titulo-secao">
+⚡ Acesso Rápido
+</div>
+
+<div class="grid-links">
+
+<div class="link-card"><a href="#">📋 PGR</a></div>
+<div class="link-card"><a href="#">📑 Plano de Trabalho</a></div>
+<div class="link-card"><a href="#">🦺 EPI</a></div>
+<div class="link-card"><a href="#">📄 Atas</a></div>
+<div class="link-card"><a href="#">🔥 Extintores</a></div>
+<div class="link-card"><a href="#">📈 Relatórios</a></div>
+<div class="link-card"><a href="#">📅 Reuniões</a></div>
+<div class="link-card"><a href="#">📊 Mapa de Riscos</a></div>
+<div class="link-card"><a href="#">🚨 Investigação Acidentes</a></div>
+<div class="link-card"><a href="#">🎯 Simulados</a></div>
+<div class="link-card"><a href="#">🏥 PCMSO</a></div>
+<div class="link-card"><a href="#">👨‍🚒 Brigada</a></div>
+<div class="link-card"><a href="#">🎉 SIPAT</a></div>
+<div class="link-card"><a href="#">✅ Inspeção de Uso EPI</a></div>
+<div class="link-card"><a href="#">📋 Autoavaliação</a></div>
+
+</div>
+
+<div class="titulo-secao">
+📅 Próximas Atividades
+</div>
+
+<div class="eventos">
+
+<div class>
 
 <tr>
-
-<td class="nome">Operador CNC</td>
-
-<td colspan="10">
-<div class="gantt">
-<div class="barra amarela"
-style="left:35%; width:20%;">
-Operador CNC
-</div>
-</div>
-</td>
-
+<td>20/11/2026</td>
+<td>Simulado de Emergência</td>
+<td>Programada</td>
 </tr>
 
 <tr>
-
-<td class="nome">Mecânico Industrial</td>
-
-<td colspan="10">
-<div class="gantt">
-<div class="barra verde"
-style="left:10%; width:65%;">
-Mecânico Industrial
-</div>
-</div>
-</td>
-
+<td>03/12/2026</td>
+<td>Fechamento Indicadores</td>
+<td>Programada</td>
 </tr>
-
-<tr>
-
-<td class="nome">Alimentador de Produção</td>
-
-<td colspan="10">
-<div class="gantt">
-<div class="barra verde"
-style="left:45%; width:35%;">
-Alimentador de Produção
-</div>
-</div>
-</td>
-
-</tr>
-
-</tbody>
 
 </table>
 
 </div>
 
 </div>
+
+<div class="titulo-secao">
+💡 Sugestões de Segurança
+</div>
+
+<div style="padding:20px;">
+
+#
+Registrar Sugestão
+</a>
+
+</div>
+
+<footer>
+
+Portal da CIPA - SENAI Ourinhos<br>
+Segurança • Saúde • Prevenção
+
+</footer>
 
 </body>
 </html>
